@@ -10,6 +10,7 @@ import SwiftUI
 struct EmployeeSignInView: View {
     @State var login: String = ""
     @State var password: String = ""
+    @State var showAdminMenu = false
     
     var body: some View {
         HStack(){
@@ -43,7 +44,7 @@ struct EmployeeSignInView: View {
                     .cornerRadius(10)
                 
                 Button {
-                    print("Вход")
+                    showAdminMenu.toggle()
                 } label: {
                     Text("Войти")
                 }
@@ -56,6 +57,9 @@ struct EmployeeSignInView: View {
 
             }
             .padding(.horizontal, 70)
+        }
+        .fullScreenCover(isPresented: $showAdminMenu) {
+            MenuAdminView()
         }
     }
 }
