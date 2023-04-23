@@ -6,21 +6,46 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AdminProductView: View {
     
     @State var title: String = ""
-    @State var prace: Int = 0
+    @State var prace: Int?
     @State var category: Category = .first
     @State var description: String = ""
+    @State var selectedItem: PhotosPickerItem?
+    @State var data: Data?
     
     var body: some View {
         VStack {
-            Image(systemName: "camera")
-                .resizable()
-                .frame(width: 220, height: 180)
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.black.opacity(0.8))
+            PhotosPicker(selection: $selectedItem) {
+                if let data {
+                    Image(uiImage: UIImage(data: data)!)
+                        .resizable()
+                        .frame(width: 220, height: 180)
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.black.opacity(0.8))
+                        .cornerRadius(20)
+                } else {
+                    Image(systemName: "camera")
+                        .resizable()
+                        .frame(width: 220, height: 180)
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.black.opacity(0.8))
+                }
+            }.onChange(of: selectedItem) { newValue in
+                guard let selectedItem else { return }
+                selectedItem.loadTransferable(type: Data.self) { result in
+                    switch result {
+                    case .success(let success):
+                        if let success {self.data = success }
+                    case .failure(let failure):
+                        print("Data not found \(failure)")
+                    }
+                }
+            }
+            
             TextField("Название", text: $title)
                 .padding().background(.white)
                 .padding(.horizontal)
@@ -41,6 +66,18 @@ struct AdminProductView: View {
             TextField("Описание", text: $description)
                 .padding().background(.white)
                 .padding(.horizontal)
+            
+            Button {
+                print("Create")
+            } label: {
+                Text("Create")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color("brown"))
+                    .padding()
+                    .foregroundColor(.white)
+                    .font(.title3).bold()
+            }
         }.frame(maxHeight: .infinity)
             .background(Color(.gray.withAlphaComponent(0.2)))
     }
