@@ -14,6 +14,8 @@
 		5B3C8BF129F46A8A0078B61D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C8BF029F46A8A0078B61D /* Product.swift */; };
 		5B3C8BF329F46C8D0078B61D /* AdminProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C8BF229F46C8D0078B61D /* AdminProductCell.swift */; };
 		5B3C8BF529F4726B0078B61D /* AdminProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3C8BF429F4726B0078B61D /* AdminProductView.swift */; };
+		5B6841A329F5892D00B64C3F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6841A229F5892D00B64C3F /* NetworkService.swift */; };
+		5B6841A529F58A3600B64C3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6841A429F58A3600B64C3F /* User.swift */; };
 		5B9980B329F30B9200BF009A /* RestaurantIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9980B229F30B9200BF009A /* RestaurantIOSApp.swift */; };
 		5B9980B529F30B9200BF009A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9980B429F30B9200BF009A /* ContentView.swift */; };
 		5B9980B729F30B9300BF009A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9980B629F30B9300BF009A /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		5B3C8BF029F46A8A0078B61D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		5B3C8BF229F46C8D0078B61D /* AdminProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductCell.swift; sourceTree = "<group>"; };
 		5B3C8BF429F4726B0078B61D /* AdminProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductView.swift; sourceTree = "<group>"; };
+		5B6841A229F5892D00B64C3F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5B6841A429F58A3600B64C3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B9980AF29F30B9200BF009A /* RestaurantIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9980B229F30B9200BF009A /* RestaurantIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantIOSApp.swift; sourceTree = "<group>"; };
 		5B9980B429F30B9200BF009A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +76,22 @@
 			path = AdminInterface;
 			sourceTree = "<group>";
 		};
+		5B6841A629F58E0200B64C3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B6841A429F58A3600B64C3F /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B6841A729F58E0F00B64C3F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5B6841A229F5892D00B64C3F /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		5B9980A629F30B9200BF009A = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +113,8 @@
 			children = (
 				5B9980B229F30B9200BF009A /* RestaurantIOSApp.swift */,
 				5B3C8BF029F46A8A0078B61D /* Product.swift */,
+				5B6841A729F58E0F00B64C3F /* Service */,
+				5B6841A629F58E0200B64C3F /* Model */,
 				5B2F0CDD29F3159300E4A501 /* Views */,
 				5B9980B629F30B9300BF009A /* Assets.xcassets */,
 				5B9980BB29F30B9300BF009A /* Persistence.swift */,
@@ -180,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6841A529F58A3600B64C3F /* User.swift in Sources */,
 				5B2F0CDA29F3121F00E4A501 /* EmployeeSignInView.swift in Sources */,
 				5B9980BC29F30B9300BF009A /* Persistence.swift in Sources */,
 				5B3C8BF129F46A8A0078B61D /* Product.swift in Sources */,
@@ -190,6 +213,7 @@
 				5B2F0CDC29F3157B00E4A501 /* MenuAdminView.swift in Sources */,
 				5B9980B529F30B9200BF009A /* ContentView.swift in Sources */,
 				5B9980BF29F30B9300BF009A /* RestaurantIOS.xcdatamodeld in Sources */,
+				5B6841A329F5892D00B64C3F /* NetworkService.swift in Sources */,
 				5B9980B329F30B9200BF009A /* RestaurantIOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
